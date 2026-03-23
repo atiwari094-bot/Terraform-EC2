@@ -1,0 +1,11 @@
+#Gitignore file for Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+# Ignore crash log files
+crash.log
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+#ignore private key files
+terra-ec2-key
