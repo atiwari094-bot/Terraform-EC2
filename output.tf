@@ -12,4 +12,6 @@ output "instance_private_ip" {
 }
 output "instance_state"{
     value = aws_instance.EC2_instance[*].instance_state
+
+    
 }
