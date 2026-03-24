@@ -21,8 +21,8 @@ resource "aws_vpc" "myvpc" {
   cidr_block = var.vpc_cidr_block
 
   tags = {
-    Name = "dev"
-    Environment = "dev-vpc" 
+    Name        = "dev"
+    Environment = "dev-vpc"
   }
 }
 
@@ -33,8 +33,8 @@ resource "aws_subnet" "mysubnet" {
   availability_zone       = var.availability_zone
   map_public_ip_on_launch = true
   tags = {
-    Name = "dev-subnet"
-    Environment = "dev-subnet" 
+    Name        = "dev-subnet"
+    Environment = "dev-subnet"
   }
 }
 
@@ -48,26 +48,27 @@ resource "aws_security_group" "my_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  # Allow SSH From anywhere
-   }
+    cidr_blocks = ["0.0.0.0/0"] # Allow SSH From anywhere
+  }
 
   ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  # Allow HTTP From anywhere
+    cidr_blocks = ["0.0.0.0/0"] # Allow HTTP From anywhere
   }
   ingress {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  # Allow HTTPS From anywhere
+    cidr_blocks = ["0.0.0.0/0"] # Allow HTTPS From anywhere
 
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"         # Allow all outbound traffic
-    cidr_blocks = ["0.0.0.0/0"]
+    egress {
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1" # Allow all outbound traffic
+      cidr_blocks = ["0.0.0.0/0"]
+    }
   }
 }
 
@@ -82,10 +83,10 @@ resource "aws_instance" "EC2_instance" {
   root_block_device {
     volume_size = var.root_block_device["volume_size"]
     volume_type = var.root_block_device["volume_type"]
-    
+
   }
   tags = {
-    Name = "Terraform-EC2"
-    Environment = "dev-ec2" 
+    Name        = "Terraform-EC2"
+    Environment = "dev-ec2"
   }
 }

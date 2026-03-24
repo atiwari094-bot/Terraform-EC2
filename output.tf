@@ -10,8 +10,8 @@ output "instance_public_dns" {
 output "instance_private_ip" {
   value = aws_instance.EC2_instance[*].private_ip
 }
-output "instance_state"{
-    value = aws_instance.EC2_instance[*].instance_state
+output "instance_state" {
+  value = aws_instance.EC2_instance[*].instance_state
 
-    
+
 }
