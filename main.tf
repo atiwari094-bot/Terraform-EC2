@@ -62,14 +62,14 @@ resource "aws_security_group" "my_sg" {
     to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"] # Allow HTTPS From anywhere
-
+  }
     egress {
       from_port   = 0
       to_port     = 0
       protocol    = "-1" # Allow all outbound traffic
       cidr_blocks = ["0.0.0.0/0"]
     }
-  }
+  
 }
 
 # Create an EC2 Instances
